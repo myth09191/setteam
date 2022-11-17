@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="src/style.css">
+  </head>
+  <body >
+ 	<div style="display: 'flex'; flex-direction: column; justify-content: center;align-items: center;"><h1 id="header">Set team</h1>
+    <p id='team1'></p>
+	<p id='team2'></p></div>
+
+    <script>let arrDisplayEntry = prompt("Name player:", "One space apart");
+
+const myArray = arrDisplayEntry.split(" ");
+//Array elements now scrambled
+myArray.sort(function() {
+return 0.5 - Math.random();});
+const team1 = []
+const team2 = []
+const handle = (item,index) => {
+  if(index < (myArray.length /2)){
+    team1.push(item)
+  }else team2.push(item)
+}
+myArray.map((item,index) => {handle(item,index)})
+
+console.log(team1)
+console.log(team2)
+document.getElementById("team1").innerHTML = `Team 1: ${team1}`; 
+document.getElementById("team2").innerHTML = `Team 2: ${team2}`; 
+</script>
+  </body>
+</html>
